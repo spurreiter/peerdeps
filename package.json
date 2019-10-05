@@ -23,10 +23,16 @@
   "bin": {
     "peerdeps": "./bin/peerdeps.js"
   },
-  "scripts": {
-    "test": "mocha",
-    "lint": "eslint --fix src test bin"
+  "directories": {
+    "test": "test"
   },
+  "scripts": {
+    "all": "npm run lint && npm test",
+    "lint": "eslint --fix src test bin",
+    "prepublishOnly": "npm run all",
+    "test": "mocha"
+  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^6.5.1",
     "eslint-config-standard": "^14.1.0",
