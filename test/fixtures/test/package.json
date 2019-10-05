@@ -1,0 +1,28 @@
+{
+  "name": "test-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "dependencies": {
+    "debug": "^3.0.0",
+    "chalk": "2.1.x",
+    "lodash.get": "^3.6.9",
+    "pacote": "^2.1.2",
+    "semver": "^5.0",
+    "hosted-git-info": "github:npm/hosted-git-info#semver:^2.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^5",
+    "mydebug": "file:../file/debug/mydebug-1.1.0-4.tgz"
+  },
+  "peerDependencies": {
+    "hosted-git-info": "github:npm/hosted-git-info#v2.1.0",
+    "superagent": "^3.0.0"
+  }
+}

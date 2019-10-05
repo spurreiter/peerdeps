@@ -1,0 +1,40 @@
+{
+  "name": "peerdeps",
+  "version": "1.0.0-0",
+  "description": "install peer dependencies",
+  "keywords": [
+    "dependencies",
+    "dependency",
+    "install",
+    "peer",
+    "peerdeps"
+  ],
+  "homepage": "https://github.com/spurreiter/peerdeps",
+  "bugs": {
+    "url": "https://github.com/spurreiter/peerdeps/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spurreiter/peerdeps.git"
+  },
+  "license": "MIT",
+  "author": "spurreiter",
+  "main": "src",
+  "bin": {
+    "peerdeps": "./bin/peerdeps.js"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint --fix src test bin"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^6.2.1",
+    "rimraf": "^3.0.0"
+  }
+}
