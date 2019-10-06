@@ -28,6 +28,7 @@
   },
   "scripts": {
     "all": "npm run lint && npm test",
+    "clean:all": "rm -rf node_modules test/fixtures/node_modules",
     "lint": "eslint --fix src test bin",
     "prepublishOnly": "npm run all",
     "test": "mocha"

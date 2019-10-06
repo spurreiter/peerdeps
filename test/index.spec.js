@@ -5,7 +5,7 @@ const rimraf = require('rimraf')
 const { run } = require('..')
 
 describe('#npm', function () {
-  const cwd = `${__dirname}/fixtures/test`
+  const cwd = `${__dirname}/fixtures`
   const nodeModules = path.resolve(cwd, 'node_modules')
 
   before((done) => {

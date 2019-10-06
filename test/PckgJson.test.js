@@ -5,7 +5,7 @@ const log = () => {} // console.log
 
 describe('#PckgJson', () => {
   it('shall read peerDependencies', () => {
-    const cwd = `${__dirname}/fixtures/test`
+    const cwd = `${__dirname}/fixtures`
     const pckg = new PckgJson({ cwd })
     return pckg.read().then(packages => {
       log(packages)
