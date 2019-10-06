@@ -1,3 +1,4 @@
+const os = require('os')
 const path = require('path')
 const fs = require('fs')
 const { spawn } = require('child_process')
@@ -6,6 +7,9 @@ const nodeBin = process.execPath
 const binDir = path.dirname(nodeBin)
 let npmBin = path.resolve(binDir, 'npm')
 
+if (os.platform() === 'win32') {
+  npmBin += '.cmd'
+}
 if (fs.statSync(npmBin)) {
   if (fs.lstatSync(npmBin).isSymbolicLink()) {
     npmBin = path.resolve(binDir, fs.readlinkSync(npmBin))

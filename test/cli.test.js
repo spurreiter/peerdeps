@@ -1,5 +1,7 @@
+const os = require('os')
 const assert = require('assert')
 const { cli } = require('..')
+const osWin32 = os.platform() === 'win32'
 
 describe('cli', () => {
   const tests = [
@@ -8,7 +10,7 @@ describe('cli', () => {
     [['-?'], { help: true }],
     [['--version'], { version: require('../package.json').version }],
     [['--dir', './test'], { cwd: __dirname }],
-    [['-d', '/dir'], { cwd: '/dir' }],
+    [['-d', '/dir'], { cwd: osWin32 ? 'C:\\dir' : '/dir' }],
     [['--quiet'], { quiet: true }],
     [['-q'], { quiet: true }],
     [['--list'], { list: true }],
