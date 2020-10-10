@@ -9,7 +9,9 @@ const error = (o, msg) => {
 }
 
 function cli (argv = process.argv.slice(2)) {
-  const o = {}
+  const o = {
+    peer: true
+  }
 
   while (argv.length) {
     const arg = argv.shift()
@@ -42,6 +44,18 @@ function cli (argv = process.argv.slice(2)) {
       case '-l':
       case '--list': {
         o.list = true
+        break
+      }
+      case '--optional': {
+        o.optional = true
+        break
+      }
+      case '--optionalDev': {
+        o.optionalDev = true
+        break
+      }
+      case '--no-peer': {
+        o.peer = false
         break
       }
       default: {

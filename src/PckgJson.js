@@ -5,14 +5,19 @@ const { resolve } = require('path')
 const fsReadFile = promisify(fs.readFile)
 
 class PckgJson {
-  constructor ({ cwd, filename = 'package.json' } = {}) {
+  constructor ({ cwd, filename = 'package.json', peer = true, optional, optionalDev } = {}) {
     this.cwd = cwd || process.cwd()
     this.filename = resolve(this.cwd, filename)
+    this.deps = Object.entries({ peer, optional, optionalDev })
+      .reduce((arr, [dep, use]) => {
+        if (use) arr.push(`${dep}Dependencies`)
+        return arr
+      }, [])
   }
 
-  static _extract (content) {
+  _extract (content) {
     const packages = {}
-    ;['peerDependencies'].forEach(dep => {
+    this.deps.forEach(dep => {
       Object.entries(content[dep] || {}).forEach(([pckg, version]) => {
         packages[pckg] = version
       })
@@ -23,7 +28,7 @@ class PckgJson {
   async read () {
     return fsReadFile(this.filename, 'utf8')
       .then(str => JSON.parse(str))
-      .then(content => PckgJson._extract(content))
+      .then(content => this._extract(content))
   }
 }
 

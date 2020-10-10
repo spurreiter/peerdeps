@@ -6,6 +6,8 @@
 
 Zero dependencies, no post-install stuff, no magic.
 
+Optional install of optionalDependencies or optionalDevDependencies.
+
 ## cli
 
 ```
@@ -15,7 +17,10 @@ Zero dependencies, no post-install stuff, no magic.
     --version             show version
     --quiet|-q            quiet mode; no console.log
     --dir|-d <dirname>    use different dirname instead of cwd
-    --list|-l             list peerDependencies
+    --list|-l             list found (peer)Dependencies
+    --optional            install optionalDependencies
+    --optionalDev         install optionalDevDependencies
+    --no-peer             do not install peerDependencies
 
   examples:
 

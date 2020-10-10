@@ -3,14 +3,11 @@ const { spawn } = require('child_process')
 function _spawn (cmd, args, { cwd, quiet } = {}) {
   const opts = {
     cwd: cwd || process.cwd(),
+    stdio: !quiet && 'inherit',
     windowsHide: true
   }
   return new Promise((resolve, reject) => {
     const runner = spawn(cmd, args, opts)
-    if (!quiet) {
-      runner.stdout.on('data', (data) => { console.log(data.toString()) })
-      runner.stderr.on('data', (data) => { console.error(data.toString()) })
-    }
     runner.on('error', (err) => reject(err))
     runner.on('close', (code) => resolve(code))
   })

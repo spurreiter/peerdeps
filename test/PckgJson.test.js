@@ -15,4 +15,28 @@ describe('#PckgJson', () => {
       })
     })
   })
+
+  it('shall read optionalDependencies and peerDependencies', () => {
+    const cwd = `${__dirname}/fixtures`
+    const pckg = new PckgJson({ cwd, optional: true })
+    return pckg.read().then(packages => {
+      log(packages)
+      assert.deepStrictEqual(packages, {
+        'hosted-git-info': 'github:npm/hosted-git-info#v2.1.0',
+        superagent: '^3.0.0',
+        debug: '*'
+      })
+    })
+  })
+
+  it('shall read optionalDevDependencies and no peerDependencies', () => {
+    const cwd = `${__dirname}/fixtures`
+    const pckg = new PckgJson({ cwd, peer: false, optionalDev: true })
+    return pckg.read().then(packages => {
+      log(packages)
+      assert.deepStrictEqual(packages, {
+        supertest: '^5'
+      })
+    })
+  })
 })
