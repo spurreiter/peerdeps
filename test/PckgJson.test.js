@@ -24,17 +24,19 @@ describe('#PckgJson', () => {
       assert.deepStrictEqual(packages, {
         'hosted-git-info': 'github:npm/hosted-git-info#v2.1.0',
         superagent: '^3.0.0',
-        debug: '*'
+        debug: '*',
+        supertest: '^5'
       })
     })
   })
 
   it('shall read optionalDevDependencies and no peerDependencies', () => {
     const cwd = `${__dirname}/fixtures`
-    const pckg = new PckgJson({ cwd, peer: false, optionalDev: true })
+    const pckg = new PckgJson({ cwd, peer: false, optional: true })
     return pckg.read().then(packages => {
       log(packages)
       assert.deepStrictEqual(packages, {
+        debug: '*',
         supertest: '^5'
       })
     })

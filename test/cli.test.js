@@ -16,7 +16,7 @@ describe('cli', () => {
     [['--list'], { list: true, peer: true }],
     [['-l'], { list: true, peer: true }],
     [['--optional'], { optional: true, peer: true }],
-    [['-l', '--optionalDev'], { list: true, optionalDev: true, peer: true }],
+    [['-l', '--optional'], { list: true, optional: true, peer: true }],
     [['--no-peer'], { peer: false }],
     [['one', 'two', 'three'], { peer: true }]
   ]

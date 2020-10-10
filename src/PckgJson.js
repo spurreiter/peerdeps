@@ -8,7 +8,7 @@ class PckgJson {
   constructor ({ cwd, filename = 'package.json', peer = true, optional, optionalDev } = {}) {
     this.cwd = cwd || process.cwd()
     this.filename = resolve(this.cwd, filename)
-    this.deps = Object.entries({ peer, optional, optionalDev })
+    this.deps = Object.entries({ peer, optional, optionalDev: optional })
       .reduce((arr, [dep, use]) => {
         if (use) arr.push(`${dep}Dependencies`)
         return arr

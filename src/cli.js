@@ -50,10 +50,6 @@ function cli (argv = process.argv.slice(2)) {
         o.optional = true
         break
       }
-      case '--optionalDev': {
-        o.optionalDev = true
-        break
-      }
       case '--no-peer': {
         o.peer = false
         break

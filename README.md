@@ -19,7 +19,6 @@ Optional install of optionalDependencies or optionalDevDependencies.
     --dir|-d <dirname>    use different dirname instead of cwd
     --list|-l             list found (peer)Dependencies
     --optional            install optionalDependencies
-    --optionalDev         install optionalDevDependencies
     --no-peer             do not install peerDependencies
 
   examples:
